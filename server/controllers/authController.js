@@ -110,7 +110,7 @@ exports.refreshTokenLogin = async (req, res) => {
             }
         );
 
-        res.cookie('token', newToken, {
+        res.cookie('access_token', newToken, {
             httpOnly: true,
             sameSite: 'strict',
             maxAge: 60 * 60 * 1000
@@ -120,5 +120,20 @@ exports.refreshTokenLogin = async (req, res) => {
 
     } catch (e) {
         return res.status(403).json({ message: `Refresh token invalide ou expiré : ${e}` });
+    }
+}
+
+exports.me = async (req, res) => {
+    const token = req.cookies.access_token;
+
+    if(!token) return res.status(401).json({ message: 'Utilisateur non authentifié' });
+
+    try {
+        const decoded = jwt.verify(token, process.env.SECRET_KEY);
+
+        return res.status(200).json({ message: 'Utilisateur connecté', userId: decoded.userId });
+
+    } catch(e) {
+        return res.status(403).json({ message: 'Token invalide ou expiré '});
     }
 }
