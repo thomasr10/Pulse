@@ -24,11 +24,11 @@ const userSchema = mongoose.Schema({
         select: false,
         minLength: [8, 'Le mot de passe doit contenir au moins 8 caractères !']
     },
-    friendsList: [{
+    friendList: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }],
-    serversList: [{
+    serverList: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Server' 
     }],
@@ -40,9 +40,10 @@ const userSchema = mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ['online, offline, focus'],
+        enum: ['online', 'offline', 'focus'],
         default: 'offline'
     },
 }, { timestamps: true });
 
-module.exports = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema);
+module.exports = User;

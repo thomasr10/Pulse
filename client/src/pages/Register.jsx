@@ -9,7 +9,32 @@ export default function Register () {
     const registerUser = async (e) => {
         e.preventDefault();
         
-        console.log(pseudo, email, password);
+        try {
+            const response = await fetch('http://localhost:3000/api/user/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ pseudo, email, password })
+            });
+
+            if (!response.ok) {
+                const data = await response.json();
+                const errorMessage = data.message;
+                alert(errorMessage);
+
+                throw new Error(`HTTP Error : ${response.status}`);
+            }
+
+            // message de succès + redirection
+
+            const data = await response.json();
+
+            alert(data.message);
+
+        } catch (e) {
+            console.error(e);
+        }
     }
 
     return (
