@@ -7,7 +7,29 @@ export default function Login() {
 
     const login = async (e) => {
         e.preventDefault();
-        console.log(email, password);
+        
+        try {
+            const response = await fetch('http://localhost:3000/api/user/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+            });
+
+            const data = await response.json();
+            const message = data.message;
+
+            if (!response.ok) {
+                alert(message);
+                throw new Error(`Erreur HTTP : ${response.status}`);
+            }
+
+            alert(message);
+
+        } catch (e) {
+            console.error(e);
+        }
     }
 
     return (

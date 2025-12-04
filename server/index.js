@@ -3,6 +3,7 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const connectDataBase = require('./config/database');
 const userRoutes = require('./routes/userRoutes');
+const cookieParser = require('cookie-parser');
 
 dotenv.config();
 const app = express();
@@ -16,6 +17,7 @@ app.use(cors({
 }));
 
 app.use(express.json());
+app.use(cookieParser());
 
 connectDataBase(DB_URL).then(() => {
     app.listen(PORT, () => console.log(`Server started on port : ${PORT}`));

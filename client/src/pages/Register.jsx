@@ -19,19 +19,15 @@ export default function Register () {
                 body: JSON.stringify({ pseudo, email, password, birthDate })
             });
 
-            if (!response.ok) {
-                const data = await response.json();
-                const errorMessage = data.message;
-                alert(errorMessage);
+            const data = await response.json();
+            const message = data.message;
 
-                throw new Error(`HTTP Error : ${response.status}`);
+            if (!response.ok) {
+                alert(message);
+                throw new Error(`Erreur HTTP : ${response.status}`);
             }
 
-            // message de succès + redirection
-
-            const data = await response.json();
-
-            alert(data.message);
+            alert(message);
 
         } catch (e) {
             console.error(e);

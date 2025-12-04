@@ -1,6 +1,10 @@
 const User = require('../schemas/userSchemas');
 const { hashPassword } = require('../utils/passwordHasher');
+const { passwordMatch } = require('../utils/passwordMatch');
 const { ageValidation } = require('../utils/birthDateCompare');
+const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv');
+dotenv.config();
 
 exports.register = async (req, res) => {
 
@@ -8,19 +12,19 @@ exports.register = async (req, res) => {
         const { pseudo, email, password, birthDate } = req.body;
 
         if (!pseudo || !email || !password) {
-            return res.status(400).json({ message: 'Tous les champs sont requis !'})
+            return res.status(400).json({ message: 'Tous les champs sont requis !' })
         }
 
-        if(password.length < 8) {
-            return res.status(400).json({ message: 'Le mot de passe doit contenir au moins 8 caractères'})
+        if (password.length < 8) {
+            return res.status(400).json({ message: 'Le mot de passe doit contenir au moins 8 caractères' })
         }
 
         const isAgeValid = ageValidation(birthDate);
-        if(!isAgeValid) return res.status(400).json({ message: 'Vous devez avoir au moins 13 ans pour vous inscrire !'});
-        
+        if (!isAgeValid) return res.status(400).json({ message: 'Vous devez avoir au moins 13 ans pour vous inscrire !' });
+
         const userExist = await User.findOne({ email });
-        if (userExist) return res.status(400).json({ message: 'Adresse mail déjà utilisée !'});
-                
+        if (userExist) return res.status(400).json({ message: 'Adresse mail déjà utilisée !' });
+
         const hashedPassword = await hashPassword(password);
 
         await User.create({
@@ -30,9 +34,46 @@ exports.register = async (req, res) => {
             birthDate: new Date(birthDate)
         });
 
-        return res.status(200).json({ message: 'Utilisateur créé avec succès !'})
+        return res.status(200).json({ message: 'Utilisateur créé avec succès !' })
 
     } catch (e) {
-        return res.status(500).json({ message: `Erreur serveur lors de la création de l'utilisateur : ${e}`});
+        return res.status(500).json({ message: `Erreur serveur lors de la création de l'utilisateur : ${e}` });
+    }
+}
+
+exports.login = async (req, res) => {
+
+    try {
+        const { email, password } = req.body;
+
+        if (!email || !password) return res.status(400).json({ message: 'Tous les champs sont requis' });
+
+        const user = await User.findOne({ email }).select('+password');
+
+        if (!user) return res.status(400).json({ message: 'Adresse mail ou mot de passe invalide' });
+
+        const passMatch = await passwordMatch(password, user.password);
+
+        if (!passMatch) return res.status(400).json({ message: 'Adresse mail ou mot de passe invalide' });
+
+        const token = jwt.sign({
+            userId: user.id
+        },
+            process.env.SECRET_KEY,
+            {
+                expiresIn: '1h'
+            }
+        );
+
+        res.cookie('access_token', token, {
+            httpOnly: true,
+            sameSite: 'strict',
+            maxAge: 60 * 60 * 1000
+        })
+
+        res.status(200).json({ message: 'Connexion réussie !' });
+
+    } catch (e) {
+        return res.status(500).json({ message: `Erreur serveur lors de la connexion : ${e}`});
     }
 }
