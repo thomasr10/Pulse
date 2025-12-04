@@ -5,6 +5,7 @@ export default function Register () {
     const [pseudo, setPseudo] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [birthDate, setBirthDate] = useState(null);
 
     const registerUser = async (e) => {
         e.preventDefault();
@@ -15,7 +16,7 @@ export default function Register () {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ pseudo, email, password })
+                body: JSON.stringify({ pseudo, email, password, birthDate })
             });
 
             if (!response.ok) {
@@ -49,6 +50,10 @@ export default function Register () {
                     <div className="form-input-container">
                         <label htmlFor="email">Adresse mail</label>
                         <input type="email" name="email" id="email" placeholder="Adresse mail" required value={email} onChange={(e) => setEmail(e.target.value)}/>
+                    </div>
+                    <div className="form-input-container">
+                        <label htmlFor="birthDate">Date de naissance</label>
+                        <input type="date" name="birthDate" id="birthDate" placeholder="Date de naissance" required value={birthDate} onChange={(e) => setBirthDate(e.target.value)}/>
                     </div>
                     <div className="form-input-container">
                         <label htmlFor="password">Mot de passe</label>

@@ -24,6 +24,10 @@ const userSchema = mongoose.Schema({
         select: false,
         minLength: [8, 'Le mot de passe doit contenir au moins 8 caractères !']
     },
+    birthDate: {
+        type: Date,
+        required: true
+    },
     friendList: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
