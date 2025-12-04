@@ -1,9 +1,11 @@
 import { useState } from "react"
+import { useNavigate } from "react-router";
 
 export default function Login() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const login = async (e) => {
         e.preventDefault();
@@ -27,6 +29,7 @@ export default function Login() {
             }
 
             alert(message);
+            navigate('/');
 
         } catch (e) {
             console.error(e);

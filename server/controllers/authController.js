@@ -137,3 +137,17 @@ exports.me = async (req, res) => {
         return res.status(403).json({ message: 'Token invalide ou expiré '});
     }
 }
+
+exports.logout = async (req, res) => {
+    res.clearCookie('access_token', {
+        httpOnly: true,
+        sameSite: 'lax'
+    });
+
+    res.clearCookie('refresh_token', {
+        httpOnly: true,
+        sameSite: 'lax'
+    });
+
+    return res.status(200).json({ message: 'Déconnexion réussie'});
+}

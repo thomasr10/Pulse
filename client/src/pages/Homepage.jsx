@@ -1,5 +1,11 @@
-export default function Homepage () {
+import LogoutButton from "../components/LogoutButton";
+
+export default function Homepage() {
     return (
-        <h1>Homepage</h1>
+        <main>
+            <h1>Homepage</h1>
+            <LogoutButton></LogoutButton>
+        </main>
+
     )
 }
