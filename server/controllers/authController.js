@@ -65,15 +65,60 @@ exports.login = async (req, res) => {
             }
         );
 
+        const refreshToken = jwt.sign({
+            userId: user.id,
+        },
+            process.env.SECRET_KEY,
+            {
+                expiresIn: '30d'
+            }
+        );
+
         res.cookie('access_token', token, {
             httpOnly: true,
             sameSite: 'strict',
             maxAge: 60 * 60 * 1000
-        })
+        });
+
+        res.cookie('refresh_token', refreshToken, {
+            httpOnly: true,
+            sameSite: 'strict',
+            maxAge: 30 * 24 * 60 * 60 * 1000
+        });
 
         res.status(200).json({ message: 'Connexion réussie !' });
 
     } catch (e) {
-        return res.status(500).json({ message: `Erreur serveur lors de la connexion : ${e}`});
+        return res.status(500).json({ message: `Erreur serveur lors de la connexion : ${e}` });
+    }
+}
+
+exports.refreshTokenLogin = async (req, res) => {
+    const refreshToken = req.cookies.refresh_token;
+
+    if (!refreshToken) return res.status(401).json({ message: 'Utilisateur non authentifié' });
+
+    try {
+        const decoded = jwt.verify(refreshToken, process.env.SECRET_KEY);
+
+        const newToken = jwt.sign({
+            userId: decoded.userId
+        },
+            process.env.SECRET_KEY,
+            {
+                expiresIn: '1h'
+            }
+        );
+
+        res.cookie('token', newToken, {
+            httpOnly: true,
+            sameSite: 'strict',
+            maxAge: 60 * 60 * 1000
+        });
+
+        return res .json({ message: 'Nouveau token généré' });
+
+    } catch (e) {
+        return res.status(403).json({ message: `Refresh token invalide ou expiré : ${e}` });
     }
 }

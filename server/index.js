@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const connectDataBase = require('./config/database');
-const userRoutes = require('./routes/userRoutes');
+const authRoutes = require('./routes/authRoutes')
 const cookieParser = require('cookie-parser');
 
 dotenv.config();
@@ -23,4 +23,4 @@ connectDataBase(DB_URL).then(() => {
     app.listen(PORT, () => console.log(`Server started on port : ${PORT}`));
 }).catch((e) => console.error(e));
 
-app.use('/api/user', userRoutes);
+app.use('/api/auth', authRoutes);
