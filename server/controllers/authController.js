@@ -15,7 +15,7 @@ exports.register = async (req, res) => {
             return res.status(400).json({ message: 'Le mot de passe doit contenir au moins 8 caractères'})
         }
 
-        const isAgeValid = await ageValidation(birthDate);
+        const isAgeValid = ageValidation(birthDate);
         if(!isAgeValid) return res.status(400).json({ message: 'Vous devez avoir au moins 13 ans pour vous inscrire !'});
         
         const userExist = await User.findOne({ email });
