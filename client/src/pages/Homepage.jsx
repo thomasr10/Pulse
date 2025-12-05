@@ -4,6 +4,7 @@ import LandingPage from "./LandingPage";
 
 export default function Homepage() {
 
+    // To improve with useAuth()
     const [isAuth, setIsAuth] = useState(null);
 
     const isLogged = async () => {
