@@ -1,0 +1,29 @@
+@use '_variables' as v;
+
+.auth-form {
+
+    .form-input-container {
+        display: flex;
+        flex-direction: column;
+        gap: v.$small-spacing;
+
+        label {
+            color: v.$font-white;
+            font-family: v.$semiBold-font;
+            font-size: v.$font-size-md;
+        }
+
+        input {
+            height: 2.88rem;
+            width: 100%;
+            background-color: v.$input-dark-purple;
+            border-radius: v.$sm-radius;
+            padding: 0 .5rem;
+            border: .13rem solid v.$gray-stroke;
+            color: v.$font-grey;
+            font-family: v.$regular-font;
+            font-size: v.$font-size-sm;
+        }
+    }
+
+}

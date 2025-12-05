@@ -1,0 +1,106 @@
+@use '_variables' as v;
+
+@font-face {
+    font-family: 'Space Grotesk Bold';
+    src: url('/fonts/SpaceGrotesk-Bold.ttf');
+}
+@font-face {
+    font-family: 'Space Grotesk Light';
+    src: url('/fonts/SpaceGrotesk-Light.ttf');
+}
+@font-face {
+    font-family: 'Space Grotesk Medium';
+    src: url('/fonts/SpaceGrotesk-Medium.ttf');
+}
+@font-face {
+    font-family: 'Space Grotesk Regular';
+    src: url('/fonts/SpaceGrotesk-Regular.ttf');
+}
+@font-face {
+    font-family: 'Space Grotesk SemiBold';
+    src: url('/fonts/SpaceGrotesk-SemiBold.ttf');
+}
+
+// RESET CSS
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: v.$body-color;
+}
+
+h1 {
+    font-size: v.$font-size-xl;
+    font-family: v.$bold-font;
+    color: v.$font-white;
+    text-align: center;
+
+    @media (min-width: v.$desktop-width) {
+        font-size: v.$font-size-xxl;
+    }
+}
+
+.mt-16 {
+    margin-top: v.$medium-spacing;
+}
+
+.mt-32 {
+    margin-top: v.$xl-spacing;
+}
+
+.mt-48 {
+    margin-top: v.$xxl-spacing;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

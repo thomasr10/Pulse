@@ -1,0 +1,7 @@
+@use '_variables' as v;
+
+.section-wrapper {
+    width: 100%;
+    max-width: v.$mobile-width;
+    margin: 0 auto;
+}

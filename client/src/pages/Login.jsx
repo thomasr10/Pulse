@@ -37,20 +37,20 @@ export default function Login() {
     }
 
     return (
-        <main>
-            <h1>Connexion</h1>
-            <section className="form-container">
-                <form onSubmit={login}>
+        <main className="section-wrapper">
+            <h1>Bon retour parmi nous</h1>
+            <section className="form-container mt-48">
+                <form onSubmit={login} className="auth-form">
                     <div className="form-input-container">
                         <label htmlFor="email">Adresse mail</label>
                         <input type="email" name="email" id="email" placeholder="Adresse mail" required value={email} onChange={(e) => setEmail(e.target.value)} />
                     </div>
-                    <div className="form-input-container">
+                    <div className="form-input-container mt-16">
                         <label htmlFor="password">Mot de passe</label>
                         <input type="password" name="password" id="password" placeholder="Mot de passe" required value={password} onChange={(e) => setPassword(e.target.value)} />
                     </div>
-                    <div className="center-btn">
-                        <input type="submit" value="S'inscrire" />
+                    <div className="center mt-32">
+                        <input type="submit" value="Se connecter" />
                     </div>
                 </form>
             </section>
