@@ -23,9 +23,7 @@ function App() {
       } />
 
       <Route path="/" element={
-        <ProtectedRoutes>
           <Homepage />
-        </ProtectedRoutes>
       }/>
       
     </Routes>
