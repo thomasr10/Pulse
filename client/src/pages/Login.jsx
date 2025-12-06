@@ -1,5 +1,6 @@
 import { useState } from "react"
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
+import FormButton from "../components/FormButton";
 
 export default function Login() {
 
@@ -38,7 +39,7 @@ export default function Login() {
 
     return (
         <main className="section-wrapper">
-            <h1 className="mt-32">Bon retour parmi nous</h1>
+            <h1 className="mt-32">Bon retour parmi nous !</h1>
             <section className="form-container mt-48">
                 <form onSubmit={login} className="auth-form">
                     <div className="form-input-container">
@@ -50,7 +51,10 @@ export default function Login() {
                         <input type="password" name="password" id="password" placeholder="Mot de passe" required value={password} onChange={(e) => setPassword(e.target.value)} />
                     </div>
                     <div className="center mt-32">
-                        <input type="submit" value="Se connecter" />
+                        <FormButton>Se connecter</FormButton>
+                    </div>
+                    <div className="form-footer-link mt-48">
+                        <span>Pas encore inscrit(e) ?</span><Link to={'/register'}>Crée ton compte</Link>
                     </div>
                 </form>
             </section>
