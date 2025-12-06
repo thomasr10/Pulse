@@ -27,3 +27,36 @@
     }
 
 }
+
+.header {
+    height: 3.75rem;
+    background-color: v.$body-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 1rem;
+
+    a {
+        text-decoration: none;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .home-link {
+        color: v.$font-white;
+        font-size: v.$font-size-lg;
+        font-family: v.$medium-font;
+    }
+
+    .header-login-btn {
+        padding: .5rem 1rem;
+        background-color: v.$secondary-purple;
+        color: v.$font-white;
+        font-family: v.$medium-font;
+        font-size: v.$font-size-sm;
+        border-radius: v.$sm-radius;
+        border: solid .13rem v.$primary-purple;
+    }
+}

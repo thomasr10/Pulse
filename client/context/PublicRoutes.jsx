@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Navigate } from 'react-router-dom';
+import Header from "../src/components/Header";
 
 export default function PublicRoutes({ children }) {
     const [isAuth, setIsAuth] = useState(null);
@@ -32,5 +33,10 @@ export default function PublicRoutes({ children }) {
         <p>Chargement...</p>
     )
 
-    return isAuth ? <Navigate to='/' /> : children;
+    return isAuth ? <Navigate to='/' /> : 
+        <>
+            <Header />
+            { children };
+        </>
+        
 }

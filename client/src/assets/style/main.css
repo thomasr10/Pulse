@@ -133,4 +133,33 @@ h1 {
   color: #D0D5DB;
   font-family: "Space Grotesk Regular";
   font-size: 0.88rem;
+}
+
+.header {
+  height: 3.75rem;
+  background-color: #131022;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 1rem;
+}
+.header a {
+  text-decoration: none;
+}
+.header a:hover {
+  cursor: pointer;
+}
+.header .home-link {
+  color: #F6F6F8;
+  font-size: 1.25rem;
+  font-family: "Space Grotesk Medium";
+}
+.header .header-login-btn {
+  padding: 0.5rem 1rem;
+  background-color: rgba(76, 43, 238, 0.4431372549);
+  color: #F6F6F8;
+  font-family: "Space Grotesk Medium";
+  font-size: 0.88rem;
+  border-radius: 0.5rem;
+  border: solid 0.13rem #4B2BEE;
 }/*# sourceMappingURL=main.css.map */

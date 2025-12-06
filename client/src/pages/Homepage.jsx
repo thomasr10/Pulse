@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import HomeConnected from "./HomeConnected";
 import LandingPage from "./LandingPage";
+import Header from "../components/Header";
 
 export default function Homepage() {
 
@@ -35,5 +36,10 @@ export default function Homepage() {
         <p>Chargement...</p>
     )
 
-    return isAuth ? <HomeConnected /> : <LandingPage />
+    return isAuth ? <HomeConnected /> : 
+        <>
+            <Header/>
+            <LandingPage />
+        </>
+        
 }
