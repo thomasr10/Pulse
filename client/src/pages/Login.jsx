@@ -38,7 +38,7 @@ export default function Login() {
 
     return (
         <main className="section-wrapper">
-            <h1>Bon retour parmi nous</h1>
+            <h1 className="mt-32">Bon retour parmi nous</h1>
             <section className="form-container mt-48">
                 <form onSubmit={login} className="auth-form">
                     <div className="form-input-container">
