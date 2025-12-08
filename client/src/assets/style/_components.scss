@@ -139,3 +139,55 @@
         cursor: pointer;
     }
 }
+
+.card-container {
+    width: 100%;
+    min-height: 8.75rem;
+    padding: 1rem;
+    background-color: v.$card-dark-purple;
+    border-radius: v.$sm-radius;
+
+    .icon {
+        color: v.$primary-purple;
+    }
+
+    .subtitle {
+        color: v.$font-white;
+        font-size: v.$font-size-md;
+        font-family: v.$bold-font;
+    }
+
+    .text {
+        color: v.$font-gray;
+        font-size: v.$font-size-sm;
+        font-family: v.$medium-font;
+    }
+}
+
+footer {
+    padding-bottom: v.$xxl-spacing;
+    span {
+        color: v.$font-white;
+        font-size: v.$font-size-xlg;
+        font-family: v.$bold-font;
+        display: flex;
+        justify-content: center;
+    }
+
+    .link-container {
+        display: flex;
+        justify-content: space-around;
+
+        a {
+            color: v.$font-white;
+            font-family: v.$regular-font;
+            text-decoration: none;
+            font-size: v.$font-size-sm;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+        }
+    }
+}
