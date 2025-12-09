@@ -18,19 +18,87 @@
   font-family: "Space Grotesk SemiBold";
   src: url("/fonts/SpaceGrotesk-SemiBold.ttf");
 }
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -40,8 +108,17 @@ time, mark, audio, video {
 }
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   display: block;
 }
 
@@ -49,16 +126,20 @@ body {
   line-height: 1;
 }
 
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
 
-blockquote, q {
+blockquote,
+q {
   quotes: none;
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
   content: "";
   content: none;
 }
@@ -158,6 +239,12 @@ h1 {
   left: 50%;
   transform: translateX(-50%);
 }
+@media (min-width: 768px) {
+  .hero {
+    width: 600px;
+    margin: 3rem auto 0 auto;
+  }
+}
 
 .icon-white {
   color: #F6F6F8;
@@ -173,6 +260,24 @@ h1 {
   color: #F6F6F8;
   font-family: "Space Grotesk SemiBold";
   font-size: 1.25rem;
+}
+@media (min-width: 768px) {
+  .feature-section {
+    width: 600px;
+    margin: 3rem auto 0 auto;
+  }
+}
+@media (min-width: 992px) {
+  .feature-section {
+    width: 800px;
+    margin: 3rem auto 0 auto;
+  }
+}
+@media (min-width: 1200px) {
+  .feature-section {
+    width: 1000px;
+    margin: 3rem auto 0 auto;
+  }
 }
 
 .cards-container {
@@ -191,6 +296,15 @@ h1 {
   font-family: "Space Grotesk Bold";
   text-align: center;
 }
+@media (min-width: 768px) {
+  .cta-section {
+    width: 600px;
+    margin: 3rem auto 0 auto;
+  }
+  .cta-section .title {
+    font-size: 2rem;
+  }
+}
 
 .small-gray-txt {
   color: #D0D5DB;
@@ -202,6 +316,31 @@ h1 {
   width: 100%;
   max-width: 340px;
   margin: 0 auto;
+}
+@media (min-width: 576px) {
+  .section-wrapper {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .section-wrapper {
+    max-width: 740px;
+  }
+}
+@media (min-width: 992px) {
+  .section-wrapper {
+    max-width: 980px;
+  }
+}
+@media (min-width: 1200px) {
+  .section-wrapper {
+    max-width: 1180px;
+  }
+}
+@media (min-width: 1440px) {
+  .section-wrapper {
+    max-width: 1380px;
+  }
 }
 
 .auth-form .form-input-container {
@@ -246,6 +385,12 @@ h1 {
 }
 .auth-form .form-footer-link a:hover {
   cursor: pointer;
+}
+@media (min-width: 1200px) {
+  .auth-form {
+    width: 840px;
+    margin: 3rem auto 0 auto;
+  }
 }
 
 .header {
@@ -306,11 +451,35 @@ h1 {
   width: 180px;
   filter: blur(50px);
 }
+@media (min-width: 768px) {
+  .bg-shape-container .blue {
+    height: 280px;
+    width: 280px;
+  }
+}
+@media (min-width: 1200px) {
+  .bg-shape-container .blue {
+    height: 320px;
+    width: 320px;
+  }
+}
 .bg-shape-container .purple {
   background-color: #4B2BEE;
   height: 80px;
   width: 80px;
   filter: blur(80px);
+}
+@media (min-width: 768px) {
+  .bg-shape-container .purple {
+    height: 100px;
+    width: 100px;
+  }
+}
+@media (min-width: 1200px) {
+  .bg-shape-container .purple {
+    height: 120px;
+    width: 120px;
+  }
 }
 
 .link-btn {
@@ -366,4 +535,5 @@ footer .link-container a {
 }
 footer .link-container a:hover {
   cursor: pointer;
+  text-decoration: underline;
 }/*# sourceMappingURL=main.css.map */

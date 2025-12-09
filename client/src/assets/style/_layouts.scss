@@ -4,4 +4,22 @@
     width: 100%;
     max-width: v.$mobile-width;
     margin: 0 auto;
+
+    @media (min-width: v.$large-mobile-width) {
+        max-width: 540px;
+    }
+
+    @media (min-width: v.$tablet-width) {
+        max-width: 740px;
+    }
+    @media (min-width: v.$large-tablet-width) {
+        max-width: 980px;
+    }
+    @media (min-width: v.$desktop-width) {
+        max-width: 1180px;
+    }
+    @media (min-width: v.$large-desktop-width) {
+        max-width: 1380px;
+    }
+    
 }

@@ -30,6 +30,7 @@
             filter: invert(1);
             cursor: pointer;
         }
+
     }
 
     .form-footer-link {
@@ -55,6 +56,10 @@
         }
     }
 
+    @media (min-width: v.$desktop-width) {
+        width: 840px;
+        margin: v.$xxl-spacing auto 0 auto;
+    }
 }
 
 .header {
@@ -106,8 +111,8 @@
 }
 
 .bg-shape-container {
-    display: flex;   
-    position: absolute; 
+    display: flex;
+    position: absolute;
 
     .background-shape {
         border-radius: v.$round-radius;
@@ -119,6 +124,16 @@
         height: 180px;
         width: 180px;
         filter: blur(50px);
+
+        @media (min-width: v.$tablet-width) {
+            height: 280px;
+            width: 280px;
+        }
+
+        @media (min-width: v.$desktop-width) {
+            height: 320px;
+            width: 320px;
+        }
     }
 
     .purple {
@@ -126,6 +141,16 @@
         height: 80px;
         width: 80px;
         filter: blur(80px);
+
+        @media (min-width: v.$tablet-width) {
+            height: 100px;
+            width: 100px;
+        }
+
+        @media (min-width: v.$desktop-width) {
+            height: 120px;
+            width: 120px;
+        }
     }
 }
 
@@ -166,6 +191,7 @@
 
 footer {
     padding-bottom: v.$xxl-spacing;
+
     span {
         color: v.$font-white;
         font-size: v.$font-size-xlg;
@@ -186,6 +212,7 @@ footer {
 
             &:hover {
                 cursor: pointer;
+                text-decoration: underline;
             }
 
         }
