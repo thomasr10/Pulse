@@ -218,3 +218,58 @@ footer {
         }
     }
 }
+
+.message-list-component {
+    
+    h2 {
+        color: v.$font-white;
+        font-family: v.$bold-font;
+        font-size: v.$font-size-lg;
+        text-align: center;
+    }
+
+    .search-bar-container {
+        display: flex;
+        gap: v.$xs-spacing;
+
+        input {
+            color: v.$font-white;
+            border-radius: v.$sm-radius;
+            background-color: v.$input-dark-purple;
+            border: solid 1px v.$gray-stroke;
+            width: 100%;
+            height: 1.75rem;
+            padding: .5rem;
+            font-size: v.$font-size-sm;
+            font-family: v.$regular-font;
+        }
+
+        .icon {
+            width: 1.75rem;
+            height: 1.75rem;
+        }
+
+        .search-icon {
+            color: v.$gray-stroke;
+        }
+
+        .add-user-icon {
+            color: v.$primary-purple;
+        }
+    }
+}
+
+.server-btn {
+    width: 3rem;
+    height: 3rem;
+    border-radius: v.$round-radius;
+    background-color: v.$dark-gray;
+    align-content: center;
+    text-align: center;
+
+    .server-btn-icon {
+        color: v.$primary-purple;
+        width: 2rem;
+        height: 2rem;
+    }
+}

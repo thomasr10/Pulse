@@ -536,4 +536,50 @@ footer .link-container a {
 footer .link-container a:hover {
   cursor: pointer;
   text-decoration: underline;
+}
+
+.message-list-component h2 {
+  color: #F6F6F8;
+  font-family: "Space Grotesk Bold";
+  font-size: 1.25rem;
+  text-align: center;
+}
+.message-list-component .search-bar-container {
+  display: flex;
+  gap: 0.5rem;
+}
+.message-list-component .search-bar-container input {
+  color: #F6F6F8;
+  border-radius: 0.5rem;
+  background-color: #15141F;
+  border: solid 1px #3E3E45;
+  width: 100%;
+  height: 1.75rem;
+  padding: 0.5rem;
+  font-size: 0.88rem;
+  font-family: "Space Grotesk Regular";
+}
+.message-list-component .search-bar-container .icon {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+.message-list-component .search-bar-container .search-icon {
+  color: #3E3E45;
+}
+.message-list-component .search-bar-container .add-user-icon {
+  color: #4B2BEE;
+}
+
+.server-btn {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: #1e1e1e;
+  align-content: center;
+  text-align: center;
+}
+.server-btn .server-btn-icon {
+  color: #4B2BEE;
+  width: 2rem;
+  height: 2rem;
 }/*# sourceMappingURL=main.css.map */
