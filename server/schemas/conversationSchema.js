@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { v4: uuid } = require('uuid');
 
-const conversationSchema = mongoose.Schema({
+const channelSchema = mongoose.Schema({
     id: {
         type: String,
         default: uuid,
@@ -12,9 +12,9 @@ const conversationSchema = mongoose.Schema({
         ref: 'User'
     }],
     type: {
-        enum: ['dm', 'group']
+        enum: ['dm', 'group', 'channel']
     }
 }, { timestamps: true});
 
-const Conversation = mongoose.model('Conversation', conversationSchema);
-module.exports = Conversation;
+const Channel = mongoose.model('Channel', channelSchema);
+module.exports = Channel;
