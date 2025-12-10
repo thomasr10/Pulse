@@ -1,12 +1,6 @@
 const mongoose = require('mongoose');
-const { v4: uuid } = require('uuid');
 
 const messageSchema = mongoose.Schema({
-    id: {
-        type: String,
-        default: uuid,
-        unique: true
-    },
     senderId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',

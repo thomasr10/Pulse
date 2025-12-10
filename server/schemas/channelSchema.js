@@ -1,12 +1,6 @@
 const mongoose = require('mongoose');
-const { v4: uuid } = require('uuid');
 
 const channelSchema = mongoose.Schema({
-    id: {
-        type: String,
-        default: uuid,
-        unique: true
-    },
     users: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
