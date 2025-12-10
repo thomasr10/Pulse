@@ -57,7 +57,7 @@ exports.login = async (req, res) => {
         if (!passMatch) return res.status(400).json({ message: 'Adresse mail ou mot de passe invalide' });
 
         const token = jwt.sign({
-            userId: user.id
+            userId: user._id
         },
             process.env.SECRET_KEY,
             {
@@ -66,7 +66,7 @@ exports.login = async (req, res) => {
         );
 
         const refreshToken = jwt.sign({
-            userId: user.id,
+            userId: user._id,
         },
             process.env.SECRET_KEY,
             {
@@ -131,7 +131,7 @@ exports.me = async (req, res) => {
     try {
         const decoded = jwt.verify(token, process.env.SECRET_KEY);
 
-        const user = await User.findOne({id: decoded.userId});
+        const user = await User.findById(decoded.userId);
 
 
         return res.status(200).json({ message: 'Utilisateur connecté', user: user });

@@ -2,8 +2,10 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const connectDataBase = require('./config/database');
-const authRoutes = require('./routes/authRoutes')
 const cookieParser = require('cookie-parser');
+
+const authRoutes = require('./routes/authRoutes');
+const userRoutes = require('./routes/userRoutes');
 
 dotenv.config();
 const app = express();
@@ -24,3 +26,4 @@ connectDataBase(DB_URL).then(() => {
 }).catch((e) => console.error(e));
 
 app.use('/api/auth', authRoutes);
+app.use('/api/user', userRoutes);

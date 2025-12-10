@@ -14,7 +14,7 @@ const channelSchema = mongoose.Schema({
     type: {
         enum: ['dm', 'group', 'channel']
     }
-}, { timestamps: true});
+}, { timestamps: true });
 
 const Channel = mongoose.model('Channel', channelSchema);
 module.exports = Channel;
