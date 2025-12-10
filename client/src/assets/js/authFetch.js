@@ -1,4 +1,4 @@
-exports.authFetch = async (url, options = {}) => {
+export async function authFetch (url, options = {}) {
 
     let response = await fetch(url, {...options, credentials: 'include'});
 

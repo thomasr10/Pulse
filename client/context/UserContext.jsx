@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import { Navigate } from 'react-router-dom';
-import Header from "../src/components/Header";
+import { createContext, useContext, useState, useEffect } from "react";
+const UserContext = createContext(null);
 
-export default function PublicRoutes({ children }) {
+export function UserProvider({ children }) {
+    const [user, setUser] = useState(null);
     const [isAuth, setIsAuth] = useState(null);
-
+    
     const isLogged = async () => {
 
         try {
@@ -13,8 +13,11 @@ export default function PublicRoutes({ children }) {
                 credentials: 'include'
             });
 
-            if (response.ok) {
+            if (response.ok) { 
+                const data = await response.json();
+                setUser(data.user);
                 setIsAuth(true);
+
             } else {
                 setIsAuth(false);
             }
@@ -29,14 +32,13 @@ export default function PublicRoutes({ children }) {
         isLogged();
     }, []);
 
-    if (isAuth === null) return (
-        <p>Chargement...</p>
+    return(
+        <UserContext.Provider value={{ isAuth, user, isLogged }}>
+            {children}
+        </UserContext.Provider>
     )
+}
 
-    return isAuth ? <Navigate to='/' /> : 
-        <>
-            <Header />
-            { children };
-        </>
-        
+export function useUser() {
+    return useContext(UserContext);
 }

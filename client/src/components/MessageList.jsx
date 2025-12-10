@@ -1,7 +1,12 @@
 import { Search, UserRoundPlus } from 'lucide-react';
 import ServerButton from './ServerButton';
+import {authFetch} from '../assets/js/authFetch';
 
 export default function MessageList () {
+
+    authFetch('http://localhost:3000/api/user/:userId/channel/dm', {
+        method: 'GET',
+    })
 
     return (
         <section className='message-list-component mt-16'>

@@ -131,7 +131,10 @@ exports.me = async (req, res) => {
     try {
         const decoded = jwt.verify(token, process.env.SECRET_KEY);
 
-        return res.status(200).json({ message: 'Utilisateur connecté', userId: decoded.userId });
+        const user = await User.findOne({id: decoded.userId});
+
+
+        return res.status(200).json({ message: 'Utilisateur connecté', user: user });
 
     } catch(e) {
         return res.status(403).json({ message: 'Token invalide ou expiré '});

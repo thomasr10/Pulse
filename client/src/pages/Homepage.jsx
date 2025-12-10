@@ -2,44 +2,18 @@ import { useState, useEffect } from "react";
 import HomeConnected from "./HomeConnected";
 import LandingPage from "./LandingPage";
 import Header from "../components/Header";
+import { useUser } from "../../context/UserContext";
 
 export default function Homepage() {
 
-    // To improve with useAuth()
-    const [isAuth, setIsAuth] = useState(null);
+    const { isAuth, user } = useUser();
 
-    const isLogged = async () => {
+    if (isAuth === null) return <p>Chargement...</p>;
 
-        try {
-            const response = await fetch('http://localhost:3000/api/auth/me', {
-                method: 'GET',
-                credentials: 'include'
-            });
-
-            if (response.ok) {
-                setIsAuth(true);
-            } else {
-                setIsAuth(false);
-            }
-        } catch (e) {
-            setIsAuth(false);
-            throw new Error(e);
-        }
-
-    }
-
-    useEffect(() => {
-        isLogged();
-    }, []);
-
-    if (isAuth === null) return (
-        <p>Chargement...</p>
-    )
-
-    return isAuth ? <HomeConnected /> : 
+    return isAuth ? <HomeConnected user={user} /> :
         <>
-            <Header/>
+            <Header />
             <LandingPage />
         </>
-        
+
 }

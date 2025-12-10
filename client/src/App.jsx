@@ -1,32 +1,20 @@
 import { Routes, Route } from "react-router-dom"
 import Register from "./pages/Register"
 import Login from "./pages/Login"
-import PublicRoutes from "../context/PublicRoutes"
-import ProtectedRoutes from "../context/ProtectedRoutes"
-import Homepage from "./pages/HomePage"
+
+import Homepage from "./pages/Homepage"
+import { UserProvider } from "../context/UserContext"
 
 function App() {
 
   return (
-    <Routes>
-
-      <Route path="/register" element={
-        <PublicRoutes>
-          <Register />
-        </PublicRoutes>
-      } />
-
-      <Route path="/login" element={
-        <PublicRoutes>
-          <Login />
-        </PublicRoutes>
-      } />
-
-      <Route path="/" element={
-          <Homepage />
-      }/>
-      
-    </Routes>
+    <UserProvider>
+      <Routes>
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Homepage />} />
+      </Routes>
+    </UserProvider>
   )
 }
 

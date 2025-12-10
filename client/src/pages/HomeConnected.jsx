@@ -1,9 +1,11 @@
 import MessageList from "../components/MessageList";
 
-export default function HomeConnected () {
+export default function HomeConnected() {
+
+   
     return (
         <main className="section-wrapper">
-            <MessageList/>
+            <MessageList />
         </main>
     )
 }
