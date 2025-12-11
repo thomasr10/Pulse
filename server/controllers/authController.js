@@ -137,7 +137,7 @@ exports.me = async (req, res) => {
         return res.status(200).json({ message: 'Utilisateur connecté', user: user });
 
     } catch(e) {
-        return res.status(403).json({ message: 'Token invalide ou expiré '});
+        return res.status(401).json({ message: 'Token invalide ou expiré '});
     }
 }
 

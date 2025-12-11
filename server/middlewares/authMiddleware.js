@@ -12,6 +12,6 @@ exports.verifyCookie = async (req, res, next) => {
          req.userId = decoded.userId;
          next();
     } catch(e) {
-        return res.status(403).json({ message: 'Token invalide ou expiré' });
+        return res.status(401).json({ message: 'Token invalide ou expiré' });
     }
 }

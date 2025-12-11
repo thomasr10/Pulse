@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import { authFetch } from "../src/assets/js/authFetch";
 const UserContext = createContext(null);
 
 export function UserProvider({ children }) {
@@ -8,7 +9,7 @@ export function UserProvider({ children }) {
     const isLogged = async () => {
 
         try {
-            const response = await fetch('http://localhost:3000/api/auth/me', {
+            const response = await authFetch('http://localhost:3000/api/auth/me', {
                 method: 'GET',
                 credentials: 'include'
             });
